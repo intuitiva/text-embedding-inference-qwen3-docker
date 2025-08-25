@@ -1,0 +1,13 @@
+{
+  "text-embeddings": {
+    "image": "your-registry-uri/text-embeddings-qwen3:latest",
+    "ports": {
+      "80": "HTTP"
+    },
+    "environment": {
+      "OMP_NUM_THREADS": "1",
+      "KMP_AFFINITY": "granularity=fine,compact,1,0",
+      "ORT_THREAD_POOL_SIZE": "1"
+    }
+  }
+}
