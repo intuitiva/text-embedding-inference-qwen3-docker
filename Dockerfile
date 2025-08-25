@@ -23,8 +23,8 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
 # ===== Final entrypoint =====
 CMD ["--model-id", "janni-t/qwen3-embedding-0.6b-int8-tei-onnx", \
      "--pooling", "mean", \
-     "--max-batch-tokens", "1024", \
-     "--tokenization-workers", "1", \
-     "--max-concurrent-requests", "4", \
-     "--max-batch-requests", "4", \
+     "--max-batch-tokens", "512", \
+     "--tokenization-workers", "2", \
+     "--max-concurrent-requests", "2", \
+     "--max-batch-requests", "2", \
      "--port", "80"]
