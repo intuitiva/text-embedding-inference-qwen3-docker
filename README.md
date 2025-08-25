@@ -30,7 +30,7 @@ docker run --platform linux/amd64 -p 8080:80 text-embeddings-qwen3
 ### Step 1: Build and Tag Image
 ```bash
 # Build the image
-docker build -t text-embeddings-qwen3 .
+docker build -t text-embeddings-qwen3:latest .
 
 # Tag for Lightsail registry
 docker tag text-embeddings-qwen3:latest your-registry-uri/text-embeddings-qwen3:latest

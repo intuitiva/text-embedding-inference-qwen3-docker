@@ -1,8 +1,9 @@
 {
   "text-embeddings": {
-    "image": "your-registry-uri/text-embeddings-qwen3:latest",
+    "image": "text-embeddings-qwen3.latest.6",
     "ports": {
-      "80": "HTTP"
+      "80": "HTTP",
+      "443": "HTTPS"
     },
     "environment": {
       "OMP_NUM_THREADS": "1",
