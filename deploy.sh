@@ -20,7 +20,17 @@ echo "Lightsail image reference: $lightsail_image"
 # Update deployment.json with the new image reference
 # Remove the leading colon from the image reference for deployment.json
 clean_image=$(echo "$lightsail_image" | sed 's/^://')
-jq --arg image "$clean_image" '.["text-embeddings-qwen3"].image = $image' deployment.json > deployment_temp.json && mv deployment_temp.json deployment.json
+
+cat > deployment.json <<EOL
+{
+  "text-embeddings-qwen3": {
+    "image": "$clean_image",
+    "ports": {
+      "80": "HTTPS"
+    }
+  }
+}
+EOL
 
 echo "Updated deployment.json with image: $clean_image"
 

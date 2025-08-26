@@ -57,5 +57,5 @@ CMD ["--model-id", "janni-t/qwen3-embedding-0.6b-int8-tei-onnx", \
      "--tokenization-workers", "1", \
      "--max-concurrent-requests", "2", \
      "--max-batch-requests", "1", \
-     "--log-level", "debug", \
+    #  "--log-level", "debug", \
      "--port", "80"]
