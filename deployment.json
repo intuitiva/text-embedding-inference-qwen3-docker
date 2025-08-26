@@ -1,14 +1,8 @@
 {
-  "text-embeddings": {
-    "image": "text-embeddings-qwen3.latest.6",
+  "text-embeddings-qwen3": {
+    "image": "text-embeddings-qwen3.latest.8",
     "ports": {
-      "80": "HTTP",
-      "443": "HTTPS"
-    },
-    "environment": {
-      "OMP_NUM_THREADS": "1",
-      "KMP_AFFINITY": "granularity=fine,compact,1,0",
-      "ORT_THREAD_POOL_SIZE": "1"
+      "80": "HTTPS"
     }
   }
 }

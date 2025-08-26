@@ -7,7 +7,7 @@ This repository contains a Docker container for running Qwen3 text embeddings in
 ### Building
 ```bash
 # Run the image first so you can create the data folder
-docker run --platform linux/amd64 -p 8080:80 -v $PWD/data:/data -e OMP_NUM_THREADS=1 -e KMP_AFFINITY=granularity=fine,compact,1,0 -e ORT_THREAD_POOL_SIZE=1 ghcr.io/huggingface/text-embeddings-inference:cpu-1.8 --model-id janni-t/qwen3-embedding-0.6b-int8-tei-onnx --pooling mean --max-batch-tokens 1024 --tokenization-workers 1
+docker --platform linux/amd64 -p 8080:80 -v $PWD/data:/data -e OMP_NUM_THREADS=1 -e KMP_AFFINITY=granularity=fine,compact,1,0 -e ORT_THREAD_POOL_SIZE=1 ghcr.io/huggingface/text-embeddings-inference:cpu-1.8 --model-id janni-t/qwen3-embedding-0.6b-int8-tei-onnx --pooling mean --max-batch-tokens 256 --tokenization-workers 1 --max-concurrent-requests 2 --max-batch-requests 1
 
 # exit the server with control + c
 
@@ -51,15 +51,10 @@ Create deployment configuration files:
 **deployment.json**
 ```json
 {
-  "text-embeddings": {
+  "text-embeddings-qwen3": {
     "image": "your-registry-uri/text-embeddings-qwen3:latest",
     "ports": {
-      "80": "HTTP"
-    },
-    "environment": {
-      "OMP_NUM_THREADS": "1",
-      "KMP_AFFINITY": "granularity=fine,compact,1,0",
-      "ORT_THREAD_POOL_SIZE": "1"
+      "80": "HTTPS"
     }
   }
 }
@@ -68,7 +63,7 @@ Create deployment configuration files:
 **public-endpoint.json**
 ```json
 {
-  "containerName": "text-embeddings",
+  "containerName": "text-embeddings-qwen3",
   "containerPort": 80,
   "healthCheck": {
     "healthyThreshold": 2,

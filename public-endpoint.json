@@ -1,5 +1,5 @@
 {
-  "containerName": "text-embeddings",
+  "containerName": "text-embeddings-qwen3",
   "containerPort": 80,
   "healthCheck": {
     "healthyThreshold": 2,

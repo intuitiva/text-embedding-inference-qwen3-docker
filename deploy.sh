@@ -20,7 +20,7 @@ echo "Lightsail image reference: $lightsail_image"
 # Update deployment.json with the new image reference
 # Remove the leading colon from the image reference for deployment.json
 clean_image=$(echo "$lightsail_image" | sed 's/^://')
-jq --arg image "$clean_image" '.["text-embeddings"].image = $image' deployment.json > deployment_temp.json && mv deployment_temp.json deployment.json
+jq --arg image "$clean_image" '.["text-embeddings-qwen3"].image = $image' deployment.json > deployment_temp.json && mv deployment_temp.json deployment.json
 
 echo "Updated deployment.json with image: $clean_image"
 
@@ -31,4 +31,4 @@ deployment_response=$(aws lightsail create-container-service-deployment \
   --public-endpoint file://public-endpoint.json)
 
 # Display the response
-echo "Deployment response: $deployment_response"    
+echo "Deployment response: $deployment_response"
