@@ -1,8 +1,8 @@
 {
-  "text-embeddings-qwen3": {
-    "image": "text-embeddings-qwen3.latest.9",
+  "text-embedding-qwen3": {
+    "image": "text-embedding-qwen3.latest.10",
     "ports": {
-      "80": "HTTPS"
+      "80": "HTTP"
     }
   }
 }

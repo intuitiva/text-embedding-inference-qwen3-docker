@@ -2,8 +2,8 @@
 
 # Get configuration from deployment.json
 region="us-east-1"
-service_name="text-embeddings-qwen3"
-image_name="text-embeddings-qwen3"
+service_name="text-embedding-qwen3"
+image_name="text-embedding-qwen3"
 
 #build the docker image
 docker build -t $image_name:latest .
@@ -23,10 +23,10 @@ clean_image=$(echo "$lightsail_image" | sed 's/^://')
 
 cat > deployment.json <<EOL
 {
-  "text-embeddings-qwen3": {
+  "text-embedding-qwen3": {
     "image": "$clean_image",
     "ports": {
-      "80": "HTTPS"
+      "80": "HTTP"
     }
   }
 }

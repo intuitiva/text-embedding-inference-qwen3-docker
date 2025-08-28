@@ -1,12 +1,12 @@
 {
-  "containerName": "text-embeddings-qwen3",
+  "containerName": "text-embedding-qwen3",
   "containerPort": 80,
   "healthCheck": {
     "healthyThreshold": 2,
     "unhealthyThreshold": 5,
     "timeoutSeconds": 10,
     "intervalSeconds": 30,
-    "path": "/health",
-    "successCodes": "200"
+    "path": "/",
+    "successCodes": "200-499"
   }
 }
